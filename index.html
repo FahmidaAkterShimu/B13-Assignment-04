@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light" class="bg-[#F8FAFC]">
 
 <head>
     <meta charset="UTF-8">
@@ -29,8 +29,28 @@
     </style>
 </head>
 
-<body>
+<body class="min-h-screen max-w-[1110px] mx-auto text-[#002C5C] px-5 pt-5">
+    <header class="text-center md:text-left mb-5">
+        <h1 class="text-[26px] md:text-[32px] font-bold">Job Application Tracker</h1>
 
+        <!-- cards container -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- card -->
+            <div class="bg-white p-5 rounded-lg">
+                <h2 class="text-sm font-medium text-[#323B49]">Total</h2>
+                <p id="total" class="text-2xl font-bold">8</p>
+            </div>
+            <div class="bg-white p-5 rounded-lg">
+                <h2 class="text-sm font-medium text-[#323B49]">Interview</h2>
+                <p id="interview" class="text-2xl font-bold text-[#10B981]">0</p>
+            </div>
+            <div class="bg-white p-5 rounded-lg">
+                <h2 class="text-sm font-medium text-[#323B49]">Rejected</h2>
+                <p id="rejected" class="text-2xl font-bold text-[#EF4444]">0</p>
+            </div>
+
+        </div>
+    </header>
 </body>
 
 </html>
