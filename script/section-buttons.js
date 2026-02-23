@@ -16,7 +16,7 @@ function showOnly(id) {
 }
 
 
-// machine -> toggling buttons
+// toggling buttons
 const buttons = document.getElementsByClassName("btns");
 
 for (let i = 0; i < buttons.length; i++) {
