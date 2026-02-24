@@ -24,7 +24,7 @@ jobList.addEventListener('click', function (event) {
         // user confirmation
         const confirmDelete = confirm("Are you sure you want to delete this job application?");
 
-        if (confirmDelete) {
+        if (confirmDelete === true) {
             card.remove();
             calculateEverything();
         }
@@ -55,20 +55,19 @@ const filterButtons = document.querySelectorAll('.filter-btn');
 let currentFilter = 'all';
 
 // filtering logic
-document.getElementById('filter-buttons').addEventListener('click', function (e) {
-    if (e.target.classList.contains('filter-btn')) {
-        filterButtons.forEach(btn => btn.classList.remove('active-btn'));
-        e.target.classList.add('active-btn');
+document.getElementById('filter-buttons').addEventListener('click', function (event) {
+    if (event.target.classList.contains('filter-btn')) {
+        for (let btn of filterButtons) {
+            btn.classList.remove('active-btn')
+        };
+        event.target.classList.add('active-btn');
 
-        currentFilter = e.target.getAttribute('data-filter');
+        currentFilter = event.target.getAttribute('data-filter');
         applyFilter(currentFilter);
     }
 });
 
-
-// element selector
-const emptyState = document.getElementById('empty-state');
-
+// cards filtering
 function applyFilter(filter) {
     const cards = document.querySelectorAll('.job-card');
     let visibleCards = 0;
@@ -79,15 +78,20 @@ function applyFilter(filter) {
         if (filter === 'all' || status === filter) {
             card.classList.remove('hidden');
             visibleCards++;
-        } else {
+        }
+        else {
             card.classList.add('hidden');
         }
     }
 
+    // element selector
+    const emptyState = document.getElementById('empty-state');
+
     // empty state logic
     if (visibleCards === 0) {
         emptyState.classList.remove('hidden');
-    } else {
+    }
+    else {
         emptyState.classList.add('hidden');
     }
 }
